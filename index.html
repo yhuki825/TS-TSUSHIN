@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TS通信合同会社 ｜ FBモバイル・通信事業</title>
+<meta name="description" content="TS通信合同会社は埼玉県所沢市を拠点に、独自モバイルサービス「FBモバイル」のSIMカード契約・販売と、通信領域の営業活動を行う通信事業者です。">
+<meta name="theme-color" content="#0C1826">
+<meta property="og:title" content="TS通信合同会社 ｜ FBモバイル・通信事業">
+<meta property="og:description" content="その一枚が、まちと世界をつなぐ。埼玉・所沢のモバイル通信事業者。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230C1826'/%3E%3Cg fill='none' stroke='%236FB4BD' stroke-width='6'%3E%3Ccircle cx='50' cy='50' r='12'/%3E%3Ccircle cx='50' cy='50' r='26' opacity='.6'/%3E%3Ccircle cx='50' cy='50' r='40' opacity='.3'/%3E%3C/g%3E%3C/svg%3E">
+
+<style>
+/* ============================================================
+   TS通信合同会社 — Brand Site
+   Concept : 波紋 / RIPPLE — 一枚のSIMから広がる電波
+   ============================================================ */
+
+/* ---- 1. Tokens ------------------------------------------- */
+:root{
+  --sumi:      #0C1826;   /* 墨紺 — base dark            */
+  --aitetsu:   #1B3A55;   /* 藍鉄 — mid navy             */
+  --asagi:     #6FB4BD;   /* 水浅葱 — signal             */
+  --asagi-dim: #3E7F8A;
+  --shu:       #D94F2B;   /* 朱 — annotation accent      */
+  --shirai:    #EDF1F3;   /* 白藍 — page ground          */
+  --shirai-2:  #F7F9FA;
+  --ginnezu:   #8A9AA5;   /* 銀鼠 — muted text           */
+  --line:      rgba(27,58,85,.16);
+  --line-dark: rgba(111,180,189,.22);
+
+  --mincho:'Zen Old Mincho', serif;
+  --gothic:'Zen Kaku Gothic New', sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+
+  --gut: clamp(20px, 5vw, 72px);
+  --sec: clamp(88px, 13vw, 176px);
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+/* ---- 2. Reset -------------------------------------------- */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--shirai);
+  color:var(--sumi);
+  font-family:var(--gothic);
+  font-weight:400;
+  font-size:clamp(14.5px,1.05vw,16px);
+  line-height:2.05;
+  letter-spacing:.045em;
+  overflow-x:hidden;
+  font-feature-settings:"palt" 1;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,ol{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4,p,figure,dl,dd{margin:0;}
+::selection{background:var(--asagi);color:var(--sumi);}
+:focus-visible{outline:2px solid var(--shu);outline-offset:4px;}
+
+/* ---- 3. Shared atoms ------------------------------------- */
+.wrap{width:min(1180px,100% - var(--gut)*2);margin-inline:auto;}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:400;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--asagi-dim);display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{
+  content:"";width:26px;height:1px;background:var(--asagi);flex:none;
+}
+.on-dark .eyebrow{color:var(--asagi);}
+.sec-title{
+  font-family:var(--mincho);font-weight:500;
+  font-size:clamp(27px,4.1vw,46px);line-height:1.5;
+  letter-spacing:.05em;margin-top:22px;
+}
+.sec-title .en{
+  display:block;font-family:var(--mono);font-size:12px;font-weight:300;
+  letter-spacing:.3em;color:var(--ginnezu);margin-top:14px;
+}
+.lead{max-width:44em;color:#33475a;}
+.on-dark .lead{color:rgba(237,241,243,.76);}
+
+/* ---- 4. Header ------------------------------------------- */
+.site-header{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px var(--gut);
+  transition:background .5s var(--ease),padding .5s var(--ease),
+             backdrop-filter .5s var(--ease),border-color .5s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.site-header.stuck{
+  background:rgba(12,24,38,.86);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  padding-block:13px;border-bottom-color:var(--line-dark);
+}
+.brand{display:flex;align-items:center;gap:12px;color:var(--shirai);}
+.brand svg{width:26px;height:26px;flex:none;}
+.brand .jp{font-family:var(--mincho);font-size:16px;letter-spacing:.16em;font-weight:500;}
+.brand .en{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;
+  color:var(--asagi);display:block;margin-top:1px;
+}
+.nav{display:flex;gap:clamp(16px,2.4vw,34px);align-items:center;}
+.nav a{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  color:rgba(237,241,243,.72);position:relative;padding-block:6px;
+  transition:color .35s var(--ease);
+}
+.nav a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:var(--asagi);transform:scaleX(0);transform-origin:right;
+  transition:transform .45s var(--ease);
+}
+.nav a:hover{color:var(--shirai);}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-toggle{display:none;}
+
+/* ---- 5. Signal rail (signature) -------------------------- */
+.rail{
+  position:fixed;right:clamp(14px,2.4vw,30px);top:50%;translate:0 -50%;
+  z-index:50;display:flex;flex-direction:column;align-items:center;gap:12px;
+  pointer-events:none;mix-blend-mode:normal;
+}
+.rail .bars{display:flex;align-items:flex-end;gap:4px;height:34px;}
+.rail .bars i{
+  display:block;width:4px;background:currentColor;opacity:.2;
+  transition:opacity .45s var(--ease),transform .45s var(--ease);
+  transform-origin:bottom;border-radius:1px;
+}
+.rail .bars i:nth-child(1){height:9px;}
+.rail .bars i:nth-child(2){height:17px;}
+.rail .bars i:nth-child(3){height:25px;}
+.rail .bars i:nth-child(4){height:34px;}
+.rail .bars i.on{opacity:1;}
+.rail .pct{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  writing-mode:vertical-rl;color:currentColor;opacity:.65;
+}
+.rail{color:var(--aitetsu);transition:color .6s var(--ease);}
+.rail.light{color:var(--asagi);}
+
+/* ---- 6. Hero --------------------------------------------- */
+.hero{
+  position:relative;min-height:100svh;background:var(--sumi);
+  color:var(--shirai);overflow:hidden;display:flex;align-items:center;
+}
+.hero-bg{position:absolute;inset:0;}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;opacity:.3;
+  filter:grayscale(.4) contrast(1.05);
+  animation:heroDrift 26s var(--ease) infinite alternate;
+}
+@keyframes heroDrift{from{transform:scale(1.06) translate3d(0,0,0);}to{transform:scale(1.16) translate3d(-1.5%,-1.5%,0);}}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(115% 85% at 76% 42%, rgba(12,24,38,.18) 0%, rgba(12,24,38,.86) 62%, var(--sumi) 100%),
+    linear-gradient(to right, var(--sumi) 4%, rgba(12,24,38,.55) 48%, rgba(12,24,38,.25) 100%);
+}
+/* dot grid = 基地局グリッド */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle, rgba(111,180,189,.30) .9px, transparent .9px);
+  background-size:34px 34px;
+  mask-image:radial-gradient(65% 60% at 72% 46%, #000 0%, transparent 78%);
+  -webkit-mask-image:radial-gradient(65% 60% at 72% 46%, #000 0%, transparent 78%);
+}
+.ripple{
+  position:absolute;right:6%;top:47%;translate:0 -50%;
+  width:min(80vh,760px);aspect-ratio:1;pointer-events:none;
+}
+.ripple circle{fill:none;stroke:var(--asagi);}
+.ripple .pulse{
+  transform-origin:50% 50%;transform-box:fill-box;
+  animation:ripple 7s linear infinite;opacity:0;
+}
+.ripple .pulse:nth-of-type(2){animation-delay:1.4s;}
+.ripple .pulse:nth-of-type(3){animation-delay:2.8s;}
+.ripple .pulse:nth-of-type(4){animation-delay:4.2s;}
+.ripple .pulse:nth-of-type(5){animation-delay:5.6s;}
+@keyframes ripple{
+  0%{transform:scale(.06);opacity:0;}
+  8%{opacity:.85;}
+  100%{transform:scale(1);opacity:0;}
+}
+.ripple .core{animation:core 2.6s ease-in-out infinite;}
+@keyframes core{0%,100%{opacity:.35;}50%{opacity:1;}}
+
+.hero-inner{position:relative;z-index:3;width:100%;padding-block:132px 108px;}
+.hero-copy{display:flex;align-items:flex-start;gap:clamp(22px,4vw,54px);}
+.hero-title{
+  writing-mode:vertical-rl;font-family:var(--mincho);font-weight:500;
+  font-size:clamp(30px,5.4vw,64px);line-height:1.62;letter-spacing:.14em;
+  height:min(58svh,600px);margin:0;
+}
+.hero-title .em{color:var(--asagi);}
+.hero-title .ch{display:inline-block;opacity:0;transform:translateY(-26px);}
+.hero-side{padding-top:clamp(6px,3vh,30px);max-width:30em;}
+.hero-side .tag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.26em;
+  color:var(--asagi);display:block;margin-bottom:22px;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.5s forwards;
+}
+.hero-side p{
+  color:rgba(237,241,243,.74);font-size:clamp(13px,1.05vw,15px);
+  opacity:0;animation:fadeUp 1.1s var(--ease) 1.75s forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:none;}}
+.hero-meta{
+  position:absolute;left:var(--gut);bottom:34px;z-index:3;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+  color:rgba(237,241,243,.45);display:flex;gap:22px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 1s var(--ease) 2.1s forwards;
+}
+.scroll-cue{
+  position:absolute;right:var(--gut);bottom:34px;z-index:3;
+  writing-mode:vertical-rl;font-family:var(--mono);font-size:10px;
+  letter-spacing:.28em;color:rgba(237,241,243,.5);
+  display:flex;align-items:center;gap:12px;
+  opacity:0;animation:fadeUp 1s var(--ease) 2.3s forwards;
+}
+.scroll-cue::after{
+  content:"";width:1px;height:56px;background:linear-gradient(var(--asagi),transparent);
+  animation:cue 2.4s var(--ease) infinite;
+}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top;}
+  50%{transform:scaleY(1);transform-origin:top;}
+  51%{transform:scaleY(1);transform-origin:bottom;}
+  100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* ---- 7. Ticker ------------------------------------------- */
+.ticker{
+  background:var(--aitetsu);color:rgba(237,241,243,.62);
+  border-block:1px solid rgba(111,180,189,.2);
+  overflow:hidden;padding-block:11px;
+}
+.ticker ul{display:flex;width:max-content;animation:slide 38s linear infinite;}
+.ticker li{
+  font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+  padding-inline:30px;white-space:nowrap;display:flex;align-items:center;gap:30px;
+}
+.ticker li::after{content:"◦";color:var(--asagi);}
+@keyframes slide{to{transform:translateX(-50%);}}
+
+/* ---- 8. Section base ------------------------------------- */
+.section{padding-block:var(--sec);position:relative;}
+.section.on-dark{background:var(--sumi);color:var(--shirai);}
+.section.tone{background:var(--shirai-2);}
+
+/* Philosophy */
+.philo-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);
+  gap:clamp(36px,6vw,90px);align-items:start;margin-top:clamp(40px,6vw,72px);
+}
+.philo-body p + p{margin-top:1.6em;}
+.philo-body .big{
+  font-family:var(--mincho);font-size:clamp(19px,2.3vw,27px);
+  line-height:2.1;letter-spacing:.08em;margin-bottom:1.4em;color:var(--aitetsu);
+}
+.on-dark .philo-body .big{color:var(--shirai);}
+.quote{
+  border-left:1px solid var(--line-dark);padding-left:clamp(20px,3vw,36px);
+}
+.quote blockquote{
+  margin:0;font-family:var(--mincho);font-size:clamp(16px,1.55vw,20px);
+  line-height:2.15;letter-spacing:.09em;color:var(--shirai);
+}
+.quote .sign{
+  margin-top:26px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--asagi);
+}
+.quote .sign strong{
+  font-family:var(--mincho);font-size:19px;font-weight:500;letter-spacing:.16em;
+  color:var(--shirai);
+}
+.philo-figure{margin-top:clamp(48px,7vw,90px);position:relative;}
+.philo-figure img{
+  width:100%;height:clamp(240px,42vw,470px);object-fit:cover;
+  filter:grayscale(.35) contrast(1.03);
+}
+.philo-figure figcaption{
+  position:absolute;left:0;bottom:-34px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.2em;color:var(--ginnezu);
+}
+
+/* ---- 9. FBモバイル (signature block) ---------------------- */
+.fb-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(30px,5vw,70px);align-items:end;}
+.fb-logo{
+  font-family:var(--mono);font-weight:500;
+  font-size:clamp(44px,8.4vw,116px);line-height:1;letter-spacing:-.02em;
+  color:var(--aitetsu);display:flex;align-items:baseline;gap:.08em;
+}
+.fb-logo b{color:var(--shu);font-weight:500;}
+.fb-logo small{
+  font-family:var(--gothic);font-size:clamp(12px,1.2vw,15px);
+  letter-spacing:.24em;color:var(--ginnezu);font-weight:400;
+  align-self:flex-end;padding-bottom:.55em;
+}
+.sim-wrap{
+  margin-top:clamp(44px,6vw,80px);
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(34px,5vw,76px);align-items:center;
+}
+.sim-card{width:100%;height:auto;}
+.sim-card .body{fill:#fff;stroke:var(--aitetsu);stroke-width:1.2;}
+.sim-card .pad{fill:none;stroke:var(--aitetsu);stroke-width:1.1;}
+.sim-card .trace{
+  fill:none;stroke:var(--asagi-dim);stroke-width:1.1;
+  stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
+}
+.reveal.is-in .sim-card .trace{
+  animation:draw 1.9s var(--ease) forwards;
+}
+.reveal.is-in .sim-card .trace:nth-of-type(2){animation-delay:.18s;}
+.reveal.is-in .sim-card .trace:nth-of-type(3){animation-delay:.36s;}
+.reveal.is-in .sim-card .trace:nth-of-type(4){animation-delay:.54s;}
+.reveal.is-in .sim-card .trace:nth-of-type(5){animation-delay:.72s;}
+@keyframes draw{to{stroke-dashoffset:0;}}
+.sim-card .spark{fill:var(--shu);opacity:0;}
+.reveal.is-in .sim-card .spark{animation:core 2.4s ease-in-out 1.4s infinite;}
+
+.feature{border-top:1px solid var(--line);padding-block:clamp(20px,2.6vw,30px);
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,38px);align-items:start;}
+.feature:last-child{border-bottom:1px solid var(--line);}
+.feature .idx{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--shu);
+  padding-top:.55em;
+}
+.feature h3{
+  font-family:var(--mincho);font-size:clamp(17px,1.85vw,23px);
+  font-weight:500;letter-spacing:.08em;line-height:1.7;
+}
+.feature p{margin-top:.7em;color:#4a5b6b;font-size:.94em;}
+.note{
+  margin-top:26px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;color:var(--ginnezu);line-height:2;
+}
+
+/* ---- 10. Services ---------------------------------------- */
+.svc-list{margin-top:clamp(44px,6vw,80px);display:grid;gap:1px;background:var(--line-dark);}
+.svc{
+  background:var(--sumi);padding:clamp(28px,4vw,52px) clamp(20px,3vw,44px);
+  display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,.9fr);
+  gap:clamp(18px,3vw,44px);align-items:center;
+  transition:background .6s var(--ease);position:relative;overflow:hidden;
+}
+.svc::before{
+  content:"";position:absolute;left:0;top:0;width:2px;height:100%;
+  background:var(--asagi);transform:scaleY(0);transform-origin:top;
+  transition:transform .6s var(--ease);
+}
+.svc:hover{background:#0F2032;}
+.svc:hover::before{transform:scaleY(1);}
+.svc .code{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--asagi);
+}
+.svc h3{
+  font-family:var(--mincho);font-size:clamp(20px,2.5vw,30px);
+  font-weight:500;letter-spacing:.09em;line-height:1.6;
+}
+.svc h3 span{
+  display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;
+  color:var(--ginnezu);margin-top:10px;
+}
+.svc p{color:rgba(237,241,243,.7);font-size:.93em;}
+.svc-figure{margin-top:clamp(44px,6vw,74px);display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line-dark);}
+.svc-figure img{width:100%;height:clamp(180px,26vw,320px);object-fit:cover;
+  filter:grayscale(.5) contrast(1.05) brightness(.86);
+  transition:filter .8s var(--ease),transform .8s var(--ease);}
+.svc-figure figure{margin:0;overflow:hidden;background:var(--sumi);}
+.svc-figure figure:hover img{filter:grayscale(0) contrast(1) brightness(1);transform:scale(1.04);}
+
+/* ---- 11. Flow -------------------------------------------- */
+.flow{margin-top:clamp(48px,6vw,84px);position:relative;}
+.flow-line{
+  position:absolute;left:0;right:0;top:31px;height:1px;
+  background:repeating-linear-gradient(to right,var(--aitetsu) 0 6px,transparent 6px 12px);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 2s var(--ease);
+}
+.flow.is-in .flow-line{transform:scaleX(1);}
+.flow-steps{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:clamp(12px,2vw,26px);position:relative;
+}
+.step .dot{
+  width:62px;height:62px;border-radius:50%;border:1px solid var(--line);
+  background:var(--shirai);display:grid;place-items:center;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--aitetsu);
+  position:relative;z-index:2;transition:border-color .5s var(--ease),color .5s var(--ease);
+}
+.section.tone .step .dot{background:var(--shirai-2);}
+.step:hover .dot{border-color:var(--shu);color:var(--shu);}
+.step h4{
+  font-family:var(--mincho);font-size:clamp(15px,1.5vw,18px);font-weight:500;
+  letter-spacing:.08em;margin-top:22px;line-height:1.7;
+}
+.step p{margin-top:.55em;font-size:.86em;color:#4a5b6b;line-height:1.95;}
+
+/* ---- 12. Company ----------------------------------------- */
+.company{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  gap:clamp(34px,6vw,84px);align-items:start;margin-top:clamp(40px,5vw,66px);}
+.profile{border-top:1px solid var(--line-dark);}
+.profile div{
+  display:grid;grid-template-columns:8.5em minmax(0,1fr);
+  gap:clamp(12px,2vw,28px);padding-block:20px;
+  border-bottom:1px solid var(--line-dark);
+}
+.profile dt{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
+  color:var(--asagi);padding-top:.65em;
+}
+.profile dd{margin:0;font-size:.95em;color:rgba(237,241,243,.88);}
+.profile dd small{
+  display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  color:var(--ginnezu);margin-top:6px;
+}
+.company-figure img{
+  width:100%;height:clamp(300px,44vw,520px);object-fit:cover;
+  filter:grayscale(.45) contrast(1.05) brightness(.9);
+}
+.company-figure figcaption{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+  color:var(--ginnezu);margin-top:14px;
+}
+
+/* ---- 13. Footer ------------------------------------------ */
+.site-footer{background:var(--aitetsu);color:var(--shirai);padding:clamp(54px,7vw,86px) 0 30px;}
+.foot-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;align-items:flex-start;}
+.foot-brand .jp{font-family:var(--mincho);font-size:clamp(21px,2.4vw,29px);letter-spacing:.16em;}
+.foot-brand .addr{
+  margin-top:16px;font-size:.9em;color:rgba(237,241,243,.7);line-height:2;
+}
+.foot-nav{display:flex;gap:clamp(20px,3vw,44px);flex-wrap:wrap;}
+.foot-nav a{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  color:rgba(237,241,243,.66);transition:color .35s var(--ease);
+}
+.foot-nav a:hover{color:var(--asagi);}
+.foot-bottom{
+  margin-top:clamp(40px,6vw,70px);padding-top:22px;
+  border-top:1px solid rgba(237,241,243,.16);
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:rgba(237,241,243,.5);
+}
+
+/* ---- 14. Reveal ------------------------------------------ */
+.reveal{opacity:0;transform:translateY(28px);
+  transition:opacity 1.05s var(--ease),transform 1.05s var(--ease);}
+.reveal.is-in{opacity:1;transform:none;}
+.reveal.d1{transition-delay:.1s;} .reveal.d2{transition-delay:.2s;}
+.reveal.d3{transition-delay:.3s;} .reveal.d4{transition-delay:.4s;}
+
+/* ---- 15. Responsive -------------------------------------- */
+@media (max-width:960px){
+  .philo-grid,.company,.sim-wrap,.fb-head{grid-template-columns:1fr;}
+  .quote{border-left:0;border-top:1px solid var(--line-dark);
+    padding-left:0;padding-top:26px;}
+  .svc{grid-template-columns:70px minmax(0,1fr);}
+  .svc p{grid-column:2;}
+  .flow-steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:38px;}
+  .flow-line{display:none;}
+  .sim-wrap .sim-card{max-width:420px;margin-inline:auto;}
+}
+@media (max-width:720px){
+  .nav{
+    position:fixed;inset:0;background:rgba(12,24,38,.97);
+    backdrop-filter:blur(10px);flex-direction:column;justify-content:center;
+    gap:26px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s;
+  }
+  .nav.open{opacity:1;visibility:visible;}
+  .nav a{font-size:13px;letter-spacing:.24em;}
+  .nav-toggle{
+    display:flex;flex-direction:column;justify-content:center;gap:5px;
+    width:38px;height:38px;background:none;border:0;cursor:pointer;
+    z-index:70;padding:0;align-items:flex-end;
+  }
+  .nav-toggle span{display:block;width:24px;height:1px;background:var(--shirai);
+    transition:transform .45s var(--ease),opacity .3s;}
+  .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+  .rail{display:none;}
+  .hero-copy{flex-direction:column;}
+  .hero-title{writing-mode:horizontal-tb;height:auto;letter-spacing:.09em;line-height:1.72;}
+  .hero-title .ch{transform:translateY(26px);}
+  .hero-side{padding-top:26px;}
+  .ripple{right:-24%;top:38%;width:118vw;}
+  .scroll-cue{display:none;}
+  .flow-steps{grid-template-columns:1fr;}
+  .svc-figure{grid-template-columns:1fr;}
+  .profile div{grid-template-columns:1fr;gap:4px;}
+  .profile dt{padding-top:0;}
+}
+
+/* ---- 16. Motion preferences ------------------------------ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .reveal{opacity:1;transform:none;}
+  .hero-title .ch{opacity:1;transform:none;}
+  .hero-side .tag,.hero-side p,.hero-meta,.scroll-cue{opacity:1;}
+  .sim-card .trace{stroke-dashoffset:0;}
+  .flow-line{transform:scaleX(1);}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <a class="brand" href="#top" aria-label="TS通信合同会社 ホーム">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <g fill="none" stroke="#6FB4BD" stroke-width="6">
+        <circle cx="50" cy="50" r="11"/>
+        <circle cx="50" cy="50" r="26" opacity=".6"/>
+        <circle cx="50" cy="50" r="41" opacity=".3"/>
+      </g>
+    </svg>
+    <span>
+      <span class="jp">TS通信合同会社</span>
+      <span class="en">TS TSUSHIN LLC</span>
+    </span>
+  </a>
+
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="nav" id="nav" aria-label="メインナビゲーション">
+    <a href="#philosophy">PHILOSOPHY</a>
+    <a href="#fbmobile">FB MOBILE</a>
+    <a href="#service">SERVICE</a>
+    <a href="#flow">FLOW</a>
+    <a href="#company">COMPANY</a>
+  </nav>
+</header>
+
+<!-- ============ SIGNAL RAIL ============ -->
+<div class="rail light" id="rail" aria-hidden="true">
+  <div class="bars"><i></i><i></i><i></i><i></i></div>
+  <span class="pct" id="railPct">00</span>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=70"
+         alt="夜の地球を結ぶ通信ネットワークのイメージ"
+         onerror="this.onerror=null;this.src='https://picsum.photos/seed/tsnetwork/2000/1200';">
+  </div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <svg class="ripple" viewBox="0 0 400 400" aria-hidden="true">
+    <circle class="core" cx="200" cy="200" r="5" fill="#6FB4BD" stroke="none"/>
+    <circle class="pulse" cx="200" cy="200" r="196" stroke-width="1"/>
+    <circle class="pulse" cx="200" cy="200" r="196" stroke-width="1"/>
+    <circle class="pulse" cx="200" cy="200" r="196" stroke-width="1"/>
+    <circle class="pulse" cx="200" cy="200" r="196" stroke-width="1"/>
+    <circle class="pulse" cx="200" cy="200" r="196" stroke-width="1"/>
+  </svg>
+
+  <div class="hero-inner wrap">
+    <div class="hero-copy">
+      <h1 class="hero-title" id="heroTitle">その一枚が、<br><span class="em">まちと世界</span>を<br>つなぐ。</h1>
+      <div class="hero-side">
+        <span class="tag">MOBILE COMMUNICATION ／ SAITAMA TOKOROZAWA</span>
+        <p>手のひらに収まる一枚のSIMカードから、通話も、仕事も、はじめての出会いも広がっていく。TS通信合同会社は、独自モバイルサービス「FBモバイル」を通じて、暮らしの土台となる通信を届けています。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <span>TS TSUSHIN LLC</span>
+    <span>EST. TOKOROZAWA, SAITAMA</span>
+    <span>SIM / MOBILE / SALES</span>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <ul id="ticker">
+    <li>FB MOBILE</li><li>SIMカードの契約・販売</li><li>通信プランのご提案</li>
+    <li>セールスパートナー事業</li><li>埼玉県所沢市</li><li>つながるを、あたりまえに</li>
+    <li>FB MOBILE</li><li>SIMカードの契約・販売</li><li>通信プランのご提案</li>
+    <li>セールスパートナー事業</li><li>埼玉県所沢市</li><li>つながるを、あたりまえに</li>
+  </ul>
+</div>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="section on-dark" id="philosophy" style="background:var(--sumi);color:var(--shirai);">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Philosophy</p>
+      <h2 class="sec-title">通信は、暮らしのインフラ。<span class="en">THE LINE THAT CARRIES A VOICE</span></h2>
+    </div>
+
+    <div class="philo-grid">
+      <div class="philo-body reveal d1">
+        <p class="big">回線は、契約書の上の数字ではありません。<br>家族との会話も、仕事の連絡も、その一つひとつを運ぶ道です。</p>
+        <p>TS通信合同会社は、埼玉県所沢市を拠点に、独自モバイルサービス「FBモバイル」のSIMカード契約・販売を行っています。あわせて、通信領域で培った提案力を活かした営業活動にも取り組んでいます。</p>
+        <p>スマートフォンの契約は、料金表を並べて比べるだけでは決められません。何に使うのか、誰と話すのか、どこで使うのか。私たちは、その人の暮らしと仕事を伺うところから始めます。電波が届く場所を増やすことと同じくらい、納得して選べる状態をつくることが、通信事業者の仕事だと考えています。</p>
+      </div>
+
+      <div class="quote reveal d2">
+        <blockquote>速さや安さだけを競うのではなく、使う人の生活に寄り添う通信を。所沢という街から、その当たり前を静かに積み上げていきます。</blockquote>
+        <p class="sign"><span>REPRESENTATIVE</span><strong>佐藤 大介</strong><span>代表社員</span></p>
+      </div>
+    </div>
+
+    <figure class="philo-figure reveal d1">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=70"
+           alt="通信サービスの提案を行うスタッフの様子"
+           onerror="this.onerror=null;this.src='https://picsum.photos/seed/tsphilo/1800/900';">
+      <figcaption>FIG.01 — 一件ずつ、使い方から組み立てる</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ FB MOBILE ============ -->
+<section class="section" id="fbmobile">
+  <div class="wrap">
+    <div class="fb-head">
+      <div class="reveal">
+        <p class="eyebrow">Our Service Brand</p>
+        <div class="fb-logo" style="margin-top:20px;">FB<b>.</b><small>MOBILE</small></div>
+      </div>
+      <p class="lead reveal d1">TS通信合同会社が提供する独自モバイルサービスです。SIMカードのご契約から開通、使いはじめのサポートまでを一貫して担当します。</p>
+    </div>
+
+    <div class="sim-wrap reveal">
+      <!-- SIMチップ接点図 = signature motif -->
+      <svg class="sim-card" viewBox="0 0 320 240" role="img" aria-label="SIMカードの接点図モチーフ">
+        <path class="body" d="M14 1 H262 L319 58 V239 H14 A13 13 0 0 1 1 226 V14 A13 13 0 0 1 14 1 Z"
+              transform="translate(0,0)"/>
+        <rect class="pad" x="44" y="46" width="150" height="118" rx="12"/>
+        <line class="pad" x1="44" y1="105" x2="194" y2="105"/>
+        <line class="pad" x1="94" y1="46" x2="94" y2="164"/>
+        <line class="pad" x1="144" y1="46" x2="144" y2="164"/>
+        <path class="trace" style="--len:190" d="M194 76 H250 V22"/>
+        <path class="trace" style="--len:200" d="M194 105 H272 V190"/>
+        <path class="trace" style="--len:170" d="M194 134 H240 V210"/>
+        <path class="trace" style="--len:150" d="M119 164 V206 H60"/>
+        <path class="trace" style="--len:130" d="M69 46 V20 H160"/>
+        <circle class="spark" cx="250" cy="22" r="4"/>
+        <circle class="spark" cx="272" cy="190" r="4"/>
+        <text x="44" y="196" font-family="IBM Plex Mono, monospace" font-size="11"
+              letter-spacing="2.4" fill="#8A9AA5">FB MOBILE / SIM</text>
+      </svg>
+
+      <div>
+        <div class="feature">
+          <span class="idx">01</span>
+          <div>
+            <h3>一枚で、はじまる</h3>
+            <p>ご契約、本人確認、SIMの発送、開通までの手続きをまとめてご案内します。専門用語の多い工程こそ、担当者が順を追ってお伝えします。</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="idx">02</span>
+          <div>
+            <h3>使い方から、選ぶ</h3>
+            <p>通話が中心か、データ通信が中心か。ご利用状況をうかがったうえで、無理のないプランをご提案します。使わない容量にお金を払わない設計を大切にしています。</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="idx">03</span>
+          <div>
+            <h3>契約したあとも、続く</h3>
+            <p>端末の初期設定、他社からの乗り換え、ご家族の追加契約まで。契約時だけでなく、その後のご相談にも継続して対応します。</p>
+          </div>
+        </div>
+        <p class="note">※ 対応回線・料金プラン・提供条件の詳細は、掲載前に貴社にてご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE ============ -->
+<section class="section on-dark" id="service" style="background:var(--sumi);color:var(--shirai);">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Service</p>
+      <h2 class="sec-title">事業内容<span class="en">WHAT WE DO</span></h2>
+    </div>
+
+    <div class="svc-list">
+      <article class="svc reveal">
+        <span class="code">SERVICE 01</span>
+        <h3>モバイル通信事業<span>FB MOBILE — SIM CONTRACT &amp; SALES</span></h3>
+        <p>独自モバイルサービス「FBモバイル」のSIMカードの契約受付および販売を行います。個人のお客様から、業務用回線をお探しの事業者様まで対応します。</p>
+      </article>
+
+      <article class="svc reveal d1">
+        <span class="code">SERVICE 02</span>
+        <h3>通信プランの導入提案<span>PLAN CONSULTING</span></h3>
+        <p>現在ご利用中の回線内容をうかがい、使い方に見合ったプランへの見直しをご提案します。複数回線をお使いの事業者様の運用整理にも対応します。</p>
+      </article>
+
+      <article class="svc reveal d2">
+        <span class="code">SERVICE 03</span>
+        <h3>セールスパートナー事業<span>SALES PARTNERSHIP</span></h3>
+        <p>通信商材の現場で培った提案力と行動量を活かし、販売代理・営業支援を行います。商材の理解から、対面での説明、クロージングまでを一貫して担います。</p>
+      </article>
+    </div>
+
+    <div class="svc-figure reveal d1">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=70"
+             alt="スマートフォンを操作する手元"
+             onerror="this.onerror=null;this.src='https://picsum.photos/seed/tsmobile/1200/800';">
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=70"
+             alt="打ち合わせを行うビジネスチーム"
+             onerror="this.onerror=null;this.src='https://picsum.photos/seed/tssales/1200/800';">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="section tone" id="flow">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Flow</p>
+      <h2 class="sec-title">ご契約から開通までの流れ<span class="en">FROM HEARING TO ACTIVATION</span></h2>
+      <p class="lead" style="margin-top:26px;">手続きは五つの工程に分かれています。<br>どの段階で何をするのかを、あらかじめお伝えしています。</p>
+    </div>
+
+    <div class="flow reveal d1" id="flowBlock">
+      <div class="flow-line" aria-hidden="true"></div>
+      <ol class="flow-steps">
+        <li class="step">
+          <div class="dot">01</div>
+          <h4>ヒアリング</h4>
+          <p>現在のご利用状況、通話とデータの使い方、ご希望の予算をうかがいます。</p>
+        </li>
+        <li class="step">
+          <div class="dot">02</div>
+          <h4>プランのご提案</h4>
+          <p>うかがった内容をもとに、適したプランと必要な費用をご説明します。</p>
+        </li>
+        <li class="step">
+          <div class="dot">03</div>
+          <h4>お申込み・本人確認</h4>
+          <p>お申込み手続きと、本人確認書類のご提出をお願いします。</p>
+        </li>
+        <li class="step">
+          <div class="dot">04</div>
+          <h4>SIMカードの発送</h4>
+          <p>審査完了後、SIMカードをお届けします。到着までの目安は別途ご案内します。</p>
+        </li>
+        <li class="step">
+          <div class="dot">05</div>
+          <h4>開通・初期設定</h4>
+          <p>回線の開通手続きと端末の設定をサポートし、ご利用開始となります。</p>
+        </li>
+      </ol>
+    </div>
+    <p class="note">※ 審査基準・発送日数・必要書類は、貴社の実際の運用に合わせて修正してください。</p>
+  </div>
+</section>
+
+<!-- ============ COMPANY ============ -->
+<section class="section on-dark" id="company" style="background:var(--sumi);color:var(--shirai);">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Company</p>
+      <h2 class="sec-title">会社概要<span class="en">CORPORATE PROFILE</span></h2>
+    </div>
+
+    <div class="company">
+      <figure class="company-figure reveal d1" style="margin:0;">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=70"
+             alt="オフィスビルの外観"
+             onerror="this.onerror=null;this.src='https://picsum.photos/seed/tsoffice/1200/1400';">
+        <figcaption>FIG.02 — 埼玉県所沢市を拠点に</figcaption>
+      </figure>
+
+      <dl class="profile reveal d2">
+        <div><dt>商号</dt><dd>TS通信合同会社<small>TS TSUSHIN LLC</small></dd></div>
+        <div><dt>代表者</dt><dd>代表社員　佐藤 大介</dd></div>
+        <div><dt>所在地</dt><dd>〒359-0024<br>埼玉県所沢市大字下安松685番地の6</dd></div>
+        <div><dt>事業内容</dt><dd>通信事業（独自モバイルサービス「FBモバイル」のSIMカード契約・販売）<br>通信プランの導入提案<br>セールスパートナー事業（販売代理・営業支援）</dd></div>
+        <div><dt>設立</dt><dd>2025年12月5日</dd></div>
+        <div><dt>資本金</dt><dd>1,000,000円</dd></div>
+        <div><dt>営業エリア</dt><dd>埼玉県所沢市を中心とした首都圏<small>※ 実態に合わせてご修正ください</small></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <p class="jp">TS通信合同会社</p>
+        <p class="addr">〒359-0024　埼玉県所沢市大字下安松685番地の6<br>通信事業／FBモバイル SIMカードの契約・販売</p>
+      </div>
+      <nav class="foot-nav" aria-label="フッターナビゲーション">
+        <a href="#philosophy">PHILOSOPHY</a>
+        <a href="#fbmobile">FB MOBILE</a>
+        <a href="#service">SERVICE</a>
+        <a href="#flow">FLOW</a>
+        <a href="#company">COMPANY</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 TS TSUSHIN LLC. ALL RIGHTS RESERVED.</span>
+      <span>TOKOROZAWA, SAITAMA, JAPAN</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- Hero: 縦書きタイトルの一文字ずつの表示 --- */
+  var title = document.getElementById('heroTitle');
+  if (title) {
+    var chars = [];
+    Array.prototype.slice.call(title.childNodes).forEach(function(node){
+      if (node.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        node.nodeValue.split('').forEach(function(ch){
+          var s = document.createElement('span');
+          s.className = 'ch';
+          s.textContent = ch;
+          frag.appendChild(s);
+          chars.push(s);
+        });
+        title.replaceChild(frag, node);
+      } else if (node.nodeType === 1) {
+        var text = node.textContent, f2 = document.createDocumentFragment();
+        node.textContent = '';
+        text.split('').forEach(function(ch){
+          var s = document.createElement('span');
+          s.className = 'ch';
+          s.textContent = ch;
+          f2.appendChild(s);
+          chars.push(s);
+        });
+        node.appendChild(f2);
+      }
+    });
+    if (reduce) {
+      chars.forEach(function(s){ s.style.opacity = 1; s.style.transform = 'none'; });
+    } else {
+      chars.forEach(function(s, i){
+        s.style.transition = 'opacity .9s cubic-bezier(.22,.61,.36,1) ' + (0.45 + i * 0.055) + 's, transform .9s cubic-bezier(.22,.61,.36,1) ' + (0.45 + i * 0.055) + 's';
+      });
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          chars.forEach(function(s){ s.style.opacity = 1; s.style.transform = 'none'; });
+        });
+      });
+    }
+  }
+
+  /* --- Scroll reveal --- */
+  var targets = document.querySelectorAll('.reveal, #flowBlock');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function(t){ io.observe(t); });
+  } else {
+    targets.forEach(function(t){ t.classList.add('is-in'); });
+  }
+
+  /* --- Header state + signal rail --- */
+  var header = document.getElementById('header');
+  var rail   = document.getElementById('rail');
+  var railPct= document.getElementById('railPct');
+  var bars   = rail ? rail.querySelectorAll('.bars i') : [];
+  var darkSections = document.querySelectorAll('.on-dark, .hero');
+  var ticking = false;
+
+  function onScroll(){
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? Math.min(1, Math.max(0, y / h)) : 0;
+
+    if (header) header.classList.toggle('stuck', y > 40);
+
+    if (railPct) railPct.textContent = ('0' + Math.round(p * 100)).slice(-2);
+    var lit = Math.ceil(p * 4);
+    for (var i = 0; i < bars.length; i++) {
+      bars[i].classList.toggle('on', i < lit);
+    }
+
+    /* レールの色を背景に合わせて反転 */
+    if (rail) {
+      var mid = y + window.innerHeight / 2, isDark = false;
+      for (var j = 0; j < darkSections.length; j++) {
+        var s = darkSections[j], top = s.offsetTop, bottom = top + s.offsetHeight;
+        if (mid >= top && mid < bottom) { isDark = true; break; }
+      }
+      rail.classList.toggle('light', isDark);
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+
+  /* --- Mobile nav --- */
+  var toggle = document.getElementById('navToggle');
+  var nav    = document.getElementById('nav');
+  if (toggle && nav) {
+    var setNav = function(open){
+      nav.classList.toggle('open', open);
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    toggle.addEventListener('click', function(){ setNav(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function(e){
+      if (e.target.tagName === 'A') setNav(false);
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && nav.classList.contains('open')) { setNav(false); toggle.focus(); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
